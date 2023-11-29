@@ -35,7 +35,7 @@ class FirstPage extends StatelessWidget {
               )),
           TextFormField(
               controller: passController,
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.visiblePassword,
               decoration: const InputDecoration(
                 labelText: 'username',
               )),
