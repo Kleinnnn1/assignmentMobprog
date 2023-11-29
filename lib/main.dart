@@ -7,62 +7,47 @@ void main() {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext build) {
-    return MaterialApp(
-      home: FirstPage()
-    );
+    return MaterialApp(home: FirstPage());
   }
 }
 
 class FirstPage extends StatelessWidget {
+  final String email = '';
+  final String pass = '';
 
-  String email= '';
-  String pass = '';
-
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.code),
-        title: Text('Assignment'),
-        backgroundColor: Colors.green,
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(20),
-        children: [
+        appBar: AppBar(
+          leading: Icon(Icons.code),
+          title: Text('Assignment'),
+          backgroundColor: Colors.green,
+        ),
+        body: ListView(padding: EdgeInsets.all(20), children: [
           TextFormField(
-            
-            controller: emailController,
-            keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              labelText: 'username',
-            )
-
-          ),
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                labelText: 'username',
+              )),
           TextFormField(
-            controller: passController,
-            keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              labelText: 'username',
-            )
+              controller: passController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                labelText: 'username',
+              )),
+          const SizedBox(height: 20),
+          ElevatedButton(
+              onPressed: () {
+                String email = emailController.text;
+                String pass = passController.text;
 
-          ),
-          
-          ElevatedButton(onPressed: () {
-          
-            print('Email: $email, Password: $pass');
-          },
-          child: Text('submit')),
-          
-
-        ]
-
-      )
-
-    );
+                print('Email: $email, Password: $pass');
+              },
+              child: Text('submit')),
+        ]));
   }
-
-
 }
